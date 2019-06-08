@@ -73,21 +73,6 @@ defmodule Homebase do
 
   defp build_absolute_url(url), do: URI.merge(base_url(), url) |> to_string()
 
-  defp save_image("", _) do
-    :ignored
-  end
-
-  defp save_image(category, url) do
-    category = String.downcase(category) |> String.replace(" ", "_")
-    path = "/tmp/products_advisor/#{category}"
-    File.mkdir_p(path)
-
-    case HTTPoison.get(url) do
-      {:ok, response} ->
-        File.write("#{path}/#{UUID.uuid4()}.jpeg", response.body)
-
-      _ ->
-        Logger.error("Unable to fetch image..")
-    end
-  end
+  defp save_image(category, url),
+    do: ProductsAdvisor.Spider.save_image(category, url)
 end
