@@ -69,18 +69,6 @@ defmodule HarveynormanIe do
     URI.merge("https://hniesfp.imgix.net", url) |> to_string()
   end
 
-  defp save_image("", _) do
-    :ignored
-  end
-
-  defp save_image(category, url) do
-    category = String.downcase(category) |> String.replace(" ", "_")
-    path = "/tmp/products_advisor/#{category}"
-    File.mkdir_p(path)
-    case  HTTPoison.get(url) do
-      {:ok, response} ->
-        File.write("#{path}/#{UUID.uuid4()}.jpeg", response.body)
-      _ -> Logger.error("Unable to fetch image..")
-    end
-  end
+  defp save_image(category, url),
+    do: ProductsAdvisor.Spider.save_image(category, url)
 end

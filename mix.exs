@@ -23,6 +23,7 @@ defmodule ProductsAdvisor.MixProject do
   defp deps do
     [
       {:crawly, "~> 0.1"},
+      {:exmagic, git: "https://github.com/andrew-d/exmagic.git", tag: "v0.0.2"},
     ]
   end
 end
