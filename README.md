@@ -1,21 +1,10 @@
 # ProductsAdvisor
 
-**TODO: Add description**
+## Running the project
+1. Run `mix deps.get`
+2. Start interactive console: `iex -S mix`
+3. Schedule the spider `Crawly.Engine.start_spider(Homebase)`
+4. Find the data at `/tmp/Homebase.jl`
 
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `products_advisor` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:products_advisor, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/products_advisor](https://hexdocs.pm/products_advisor).
+Find more information about Crawly usage at: https://oltarasenko.github.io/crawly/#/
 
